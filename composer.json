@@ -1,0 +1,24 @@
+{
+    "name": "mahngiel/phar-while",
+    "require": {
+        "symfony/filesystem": "^3.1",
+        "vlucas/phpdotenv": "^2.3",
+        "filp/whoops": "^2.1",
+        "kherge/box": "^2.7"
+    },
+    "authors": [
+        {
+            "name": "Mahngiel",
+            "email": "kris@reeck.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Mahngiel\\PharWhile\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    },
+    "minimum-stability": "dev"
+}
