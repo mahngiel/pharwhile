@@ -7,7 +7,6 @@
     "src"
   ],
   "files": [
-    "LICENSE.md",
     "init.php"
   ],
   "finder": [
@@ -20,7 +19,7 @@
       "in": "vendor"
     }
   ],
-  "git-version": "package_version",
+  "git-version": "master",
   "intercept": true,
   "main": "init.php",
   "output": "while.phar",
