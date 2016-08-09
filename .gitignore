@@ -1,0 +1,5 @@
+.env
+.idea
+.travis
+vendor
+while.phar*
