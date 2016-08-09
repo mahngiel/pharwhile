@@ -3,7 +3,7 @@
 use Humbug\SelfUpdate\Updater;
 
 if ( !isset( $argv ) ) {
-    die( "called without args" );
+    die( "Called without args" );
 }
 
 require __DIR__ . '/vendor/autoload.php';
