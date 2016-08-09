@@ -4,7 +4,8 @@
         "symfony/filesystem": "^3.1",
         "vlucas/phpdotenv": "^2.3",
         "filp/whoops": "^2.1",
-        "kherge/box": "^2.7"
+        "kherge/box": "^2.7",
+        "padraic/phar-updater": "^1.0"
     },
     "authors": [
         {
