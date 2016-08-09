@@ -10,9 +10,9 @@ $whoops = new \Whoops\Run();
 $whoops->pushHandler( new \Whoops\Handler\JsonResponseHandler() );
 $whoops->register();
 
-$fs = new \Symfony\Component\Filesystem\Filesystem();
+$config = pathinfo( $argv[0] )['extension'] === 'phar' ? $argv[1] : __DIR__ . '/.env';
 
-$config = $argv[1];
+$fs = new \Symfony\Component\Filesystem\Filesystem();
 
 if ( !$fs->exists( $config ) ) {
     throw new \Symfony\Component\Filesystem\Exception\FileNotFoundException( $config );
