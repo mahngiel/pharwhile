@@ -1,5 +1,7 @@
 <?php
 
+use Humbug\SelfUpdate\Updater;
+
 if ( !isset( $argv ) ) {
     die( "called without args" );
 }
@@ -20,4 +22,27 @@ if ( !$fs->exists( $config ) ) {
 
 ( new \Dotenv\Dotenv( dirname( $config ), sprintf( "%s", basename( $config ) ) ) )->load();
 
-\Mahngiel\PharWhile\App::run();
+$updater = new Updater( );
+$updater->getStrategy()->setPharUrl( 'https://mahngiel.github.io/pharwhile/while.phar' );
+$updater->getStrategy()->setVersionUrl( 'https://mahngiel.github.io/pharwhile/while.phar.version' );
+
+try {
+    $result = $updater->hasUpdate();
+    if ( $result ) {
+        echo( sprintf(
+            'The current stable build available remotely is: %s',
+            $updater->getNewVersion()
+        ) );
+    }
+    elseif ( false === $updater->getNewVersion() ) {
+        echo( 'There are no stable builds available.' );
+    }
+    else {
+        echo( 'You have the current stable build installed.' );
+    }
+}
+catch ( \Exception $e ) {
+    printf($e->getMessage());
+    exit( 'Well, something happened! Either an oopsie or something involving hackers.' );
+}
+
